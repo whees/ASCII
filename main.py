@@ -28,7 +28,6 @@ img = compress(stretch(mpimg.imread(img_path, 0).mean(axis=2)))
 cdex = ['|','—','\\','/'] 
 
 def to_chars(img):
-    
     ivert = convolve(img,vert)
     ihori = convolve(img,hori)
     idial = convolve(img,dial)
