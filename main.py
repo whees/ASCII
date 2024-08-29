@@ -15,7 +15,7 @@ dial = [[0,-1,-1],[1,0,-1],[1,1,0]]
 diar = [[1,1,0],[1,0,-1],[0,-1,-1]]
 cdex = ['|','—','\\','/'] 
 
-def compress(img, bin_size=2):
+def compress(img, bin_size=4):
     img = np.array(img)
     X,Y = img.shape[0] // bin_size, 2*img.shape[1] // bin_size 
     img = img[:X*bin_size,:Y*bin_size//2]
@@ -44,9 +44,9 @@ def to_chars(img):
 img_pref = 'frames/'
 out_pref = 'chars/'
 for n in trange(1,151):
-    img_name = f'frame{n:04d}' + '.png'
-    img_path = img_pref + img_name
-    out_path = out_pref + img_name
+    img_name = f'frame{n:04d}'
+    img_path = img_pref + img_name + '.png'
+    out_path = out_pref + img_name + '.txt'
     
     img = compress(mpimg.imread(img_path, 0))
     chars = to_chars(img)
